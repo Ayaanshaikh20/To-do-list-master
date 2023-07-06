@@ -25,7 +25,8 @@ addBtn.addEventListener(
     }
     //this will add an item into the todo list
     else {
-      todos = JSON.parse(localStorage.getItem("todos1"));
+      if(localStorage.getItem("todos1")!== null){
+        todos = JSON.parse(localStorage.getItem("todos1"));
       let repeated = todos.filter((e) => {
         return e === inputText;
       });
@@ -37,8 +38,11 @@ addBtn.addEventListener(
       //     alert("repeated")
       //     return
       // }
+  
+      }
       savelocaltodos(inputText);
       getlocallasttodo();
+      
     }
 
     // document.addEventListener('DOMContentLoaded', getlocaltodos)
